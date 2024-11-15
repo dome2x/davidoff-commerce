@@ -1,7 +1,7 @@
 import Carousel from '@components/davidoff/carousel/index';
-import Hero from '@components/layout/davidoff/hero';
-import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
+import Hero from '@components/davidoff/hero';
+import Footer from '@components/layout/footer';
+import Link from 'next/link';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -16,8 +16,8 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+    <Link href="/davidoff/home">Home</Link>
       <Hero />
-      <ThreeItemGrid />
       <Suspense>
         <Carousel />
         <Suspense>

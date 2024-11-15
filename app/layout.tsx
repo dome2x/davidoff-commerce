@@ -1,5 +1,6 @@
-import Navbar from 'components/layout/davidoff/navbar';
-import { ensureStartsWith } from 'lib/utils';
+import Navbar from '@components/layout/davidoff/navbar';
+import QueryProvider from '@components/query-provider';
+import { ensureStartsWith } from '@lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
@@ -23,12 +24,12 @@ export const metadata = {
   },
   ...(twitterCreator &&
     twitterSite && {
-      twitter: {
-        card: 'summary_large_image',
-        creator: twitterCreator,
-        site: twitterSite
-      }
-    })
+    twitter: {
+      card: 'summary_large_image',
+      creator: twitterCreator,
+      site: twitterSite
+    }
+  })
 };
 
 const inter = Inter({
@@ -41,10 +42,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
-        <Navbar />
-        <Suspense>
-          <main>{children}</main>
-        </Suspense>
+        <QueryProvider>
+          <Navbar />
+          <Suspense>
+            <main>{children}</main>
+          </Suspense>
+        </QueryProvider>
       </body>
     </html>
   );

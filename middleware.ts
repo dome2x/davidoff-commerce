@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-import { getProductIdBySlug } from 'lib/bigcommerce';
+import { getProductIdBySlug } from '@lib/bigcommerce';
 
 export async function middleware(request: NextRequest) {
   const pageNode = await getProductIdBySlug(request.nextUrl.pathname);
