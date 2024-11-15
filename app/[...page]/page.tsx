@@ -14,7 +14,6 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const model = "page";
-  console.log("/" + (props?.params?.page?.join("/") || ""));
   const content = await builder
     // Get the page content from Builder with the specified options
     .get("page", {
