@@ -1,4 +1,4 @@
-import Navbar from 'components/layout/navbar';
+import Navbar from 'components/layout/davidoff/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';

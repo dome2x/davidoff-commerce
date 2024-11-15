@@ -1,4 +1,5 @@
-import { Carousel } from 'components/carousel';
+import Carousel from '@components/davidoff/carousel/index';
+import Hero from '@components/layout/davidoff/hero';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
@@ -15,6 +16,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
+      <Hero />
       <ThreeItemGrid />
       <Suspense>
         <Carousel />
