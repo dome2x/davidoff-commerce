@@ -2,9 +2,10 @@
 
 import { addItem } from '@components/cart/actions';
 import LoadingDots from '@components/loading-dots';
+import { Button } from '@components/ui/button';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
 import { VercelProductVariant as ProductVariant } from '@lib/bigcommerce/types';
+import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 
@@ -30,36 +31,58 @@ function SubmitButton({
 
   if (!selectedVariantId) {
     return (
-      <button
+      <Button
         aria-label="Please select an option"
         aria-disabled
-        className={clsx(buttonClasses, disabledClasses)}
+        className="bg-[#b5985a] hover:bg-[#9a8049]"
       >
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
         </div>
         Add To Cart
-      </button>
+      </Button>
+      // <button
+      //   aria-label="Please select an option"
+      //   aria-disabled
+      //   className={clsx(buttonClasses, disabledClasses)}
+      // >
+      //   <div className="absolute left-0 ml-4">
+      //     <PlusIcon className="h-5" />
+      //   </div>
+      //   Add To Cart
+      // </button>
     );
   }
 
   return (
-    <button
-      onClick={(e: React.FormEvent<HTMLButtonElement>) => {
-        if (pending) e.preventDefault();
-      }}
-      aria-label="Add to cart"
-      aria-disabled={pending}
-      className={clsx(buttonClasses, {
-        'hover:opacity-90': true,
-        disabledClasses: pending
-      })}
-    >
-      <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
-      </div>
-      Add To Cart
-    </button>
+    <>
+      <Button
+        aria-label="Add to cart"
+        aria-disabled={pending}
+        className="bg-[#b5985a] hover:bg-[#9a8049]"
+      >
+        <div className="absolute left-0 ml-4">
+          {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+        </div>
+        Add To Cart
+      </Button>
+      {/* <button
+        onClick={(e: React.FormEvent<HTMLButtonElement>) => {
+          if (pending) e.preventDefault();
+        }}
+        aria-label="Add to cart"
+        aria-disabled={pending}
+        className={clsx(buttonClasses, {
+          'hover:opacity-90': true,
+          disabledClasses: pending
+        })}
+      >
+        <div className="absolute left-0 ml-4">
+          {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+        </div>
+        Add To Cart
+      </button> */}
+    </>
   );
 }
 

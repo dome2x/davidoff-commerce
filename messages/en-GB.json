@@ -12,5 +12,32 @@
     "title": "TIME BEAUTIFULLY FILLED",
     "subtitle": "DAVIDOFF CIGARS",
     "cta": "DISCOVER MORE"
+  },
+  "footer": {
+    "since": "Since 1911",
+    "contact": "CONTACT",
+    "about": "ABOUT DAVIDOFF",
+    "heritage": "HERITAGE & CRAFTSMANSHIP",
+    "press": "PRESS",
+    "payment": "PAYMENT & DELIVERY",
+    "customer_service": "CUSTOMER SERVICE",
+    "FAQS": "FAQS",
+    "shop": "SHOP",
+    "store_locator": "STORE LOCATOR",
+    "track_order": "TRACK ORDER",
+    "cigar_knowledge": "CIGAR KNOWLEDGE",
+    "news_events": "NEWS & EVENTS",
+    "retailer_portal": "RETAILER PORTAL",
+    "surgeon_general_warning_title": "SURGEON GENERAL WARNING",
+    "surgeon_general_warning": "Cigar Smoking Can Cause Cancers Of The Mouth And Throat, Even If You Do Not Inhale",
+    "terms_and_conditions": "TERMS & CONDITIONS",
+    "privacy_policy": "PRIVACY POLICY",
+    "privacy_settings": "PRIVACY SETTINGS",
+    "accessibility": "ACCESSIBILITY",
+    "cookie_policy": "COOKIE POLICY",
+    "about_oettinger_davidoff_ag": "ABOUT OETTINGER DAVIDOFF AG",
+    "copyright": "© 2024 DAVIDOFF OF GENEVA USA ONLINE, INC. - All rights reserved",
+    "stay_in_the_know": "STAY IN THE KNOW",
+    "get_the_latest_news_in_your_box": "GET THE LATEST NEWS IN YOUR BOX"
   }
 }
