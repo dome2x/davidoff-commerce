@@ -12,6 +12,8 @@ export async function middleware(request: NextRequest) {
 
   if (pageNode?.__typename === 'Product') {
     return NextResponse.rewrite(new URL(`/product/${pageNode.entityId}`, request.url));
+  } else if (request.nextUrl.pathname.includes('/media/')) {
+    return NextResponse.rewrite(request.url);
   } else {
     return routingMiddleware(request);
   }  
@@ -26,7 +28,7 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|/media/*).*)',
     '/', '/(de|en)-(DE|EN)/:path*'
   ]
 };

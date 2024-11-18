@@ -1,5 +1,6 @@
 'use client'
 
+import { builder } from '@builder.io/sdk'
 import { Menu, Search, ShoppingBag, User, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
@@ -7,16 +8,18 @@ import { useParams } from 'next/navigation'
 import { useState } from 'react'
 import LocaleSelector from './locale-selector'
 
+
 export default function NavBar() {
   const t = useTranslations('navbar');
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const params = useParams();
   const { locale } = params;
-  
+  builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
+
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen)
   }
-
+  
   return (
     <div className="font-sans">
       {/* Top banner */}

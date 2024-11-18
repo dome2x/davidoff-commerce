@@ -18,7 +18,6 @@ interface PageProps {
 
 export default async function Page(props: PageProps) {
   const { locale, page } = props.params;
-  const filters = ["en", "de", "GB", "DE"];
   
   const model = "page";
   const content = await builder
@@ -27,7 +26,7 @@ export default async function Page(props: PageProps) {
       userAttributes: {
         locale,
         // Use the page path specified in the URL to fetch the content
-        urlPath: `/${locale}/` + (page?.filter(x => !filters.includes(x)).join("/") || ""),
+        urlPath: `/${locale}/` + (page?.join("/") || ""),
       },
       options: {
         locale
@@ -38,7 +37,7 @@ export default async function Page(props: PageProps) {
     // Convert the result to a promise
     .toPromise();
 
-    return (
+  return (
     <>
       {/* Render the Builder page */}
       <RenderBuilderContent locale={locale} content={content} model={model} />
