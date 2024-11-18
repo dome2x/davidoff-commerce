@@ -52,7 +52,10 @@ export default function GridItemTile({ data }: { data: ProductData }) {
               <h3 className="mt-2 text-lg font-semibold leading-tight">
                 {data.name}
                 <br />
-                {data.subtitle}
+                <br />
+                <span className="text-sm">
+                  {data.subtitle}
+                </span>
               </h3>
             </div>
             <div className="mt-4 flex items-center justify-center gap-4 text-sm">

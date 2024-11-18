@@ -1,5 +1,9 @@
+import { routing } from '@i18n/routing';
+import createMiddleware from 'next-intl/middleware';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+ 
+const routingMiddleware = createMiddleware(routing);
 
 import { getProductIdBySlug } from '@lib/bigcommerce';
 
@@ -8,7 +12,9 @@ export async function middleware(request: NextRequest) {
 
   if (pageNode?.__typename === 'Product') {
     return NextResponse.rewrite(new URL(`/product/${pageNode.entityId}`, request.url));
-  }
+  } else {
+    return routingMiddleware(request);
+  }  
 }
 
 export const config = {
@@ -20,6 +26,7 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)'
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/', '/(de|en)-(DE|EN)/:path*'
   ]
 };

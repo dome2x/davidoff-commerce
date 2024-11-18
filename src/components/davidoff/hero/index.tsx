@@ -1,7 +1,9 @@
 import { Button } from '@components/ui/button';
-import { Circle } from 'lucide-react';
+import { Accessibility, Circle } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
+  const t = useTranslations("hero");
   return (
     <div className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0 h-full w-full">
@@ -23,30 +25,17 @@ export default function Hero() {
       </div>
       <div className="absolute inset-0 bg-black bg-opacity-50" />
       <div className="relative z-10 flex h-full flex-col items-center justify-center text-white">
-        <p className="mb-4 text-sm uppercase tracking-wider">Davidoff Cigars</p>
+        <p className="mb-4 text-sm uppercase tracking-wider">{t("subtitle")}</p>
         <h1 className="mb-8 text-center text-5xl font-bold tracking-wide sm:text-6xl md:text-7xl">
-          TIME BEAUTIFULLY FILLED
+          {t("title")}
         </h1>
-        <Button className="bg-[#C4A962] text-black hover:bg-[#B39752]">DISCOVER MORE</Button>
+        <Button className="bg-[#C4A962] text-black hover:bg-[#B39752]">{t("cta")}</Button>
       </div>
-      <div className="absolute bottom-4 right-4 text-white">
-        <Circle className="h-8 w-8" />
+      <div className="fixed bottom-4 right-4 text-white z-20">
+        <Circle className="w-8 h-8" />
       </div>
-      <button className="absolute bottom-4 left-4 text-white" aria-label="Accessibility options">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          className="h-8 w-8"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          />
-        </svg>
+      <button className="fixed bottom-4 left-4 text-white z-20 bg-white rounded-full p-1" aria-label="Accessibility options">
+        <Accessibility className="w-8 h-8 text-black" fill="currentColor" />
       </button>
     </div>
   );

@@ -1,0 +1,16 @@
+{
+  "homepage": {
+    "about": "Go to the about page"
+  },
+  "navbar": {
+    "subtitle": "Seit 1911",
+    "discover": "ENTDECKEN",
+    "gift": "GESHENK",
+    "shop": "SHOP"
+  },
+  "hero": {
+    "title": "ZEIT WUNDERSCHÖN GEFÜLLT",
+    "subtitle": "DAVIDOFF ZIGARREN",
+    "cta": "ENTDECKE MEHR"
+  }
+}

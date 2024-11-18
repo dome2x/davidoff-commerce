@@ -1,7 +1,11 @@
 const withBuilderDevTools = require('@builder.io/dev-tools/next')();
+const createNextIntlPlugin = require('next-intl/plugin');
+ 
+const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
-module.exports = withBuilderDevTools({
+module.exports = withBuilderDevTools(withNextIntl({
+  trailingSlash: true,
   eslint: {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.
     ignoreDuringBuilds: true
@@ -46,4 +50,4 @@ module.exports = withBuilderDevTools({
       },
     ];
   },
-});
+}));
