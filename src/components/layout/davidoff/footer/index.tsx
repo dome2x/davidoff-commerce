@@ -37,25 +37,25 @@ export default function Footer() {
       <nav className="border-y">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 gap-4 py-4 text-center text-sm md:grid-cols-4 lg:grid-cols-7">
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap">
               {t('about')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap">
               {t('heritage')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap">
               {t('press')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap">
               {t('payment')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap">
               {t('contact')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap text-right">
               {t('customer_service')}
             </Link>
-            <Link href="#" className="hover:text-[#b5985a]">
+            <Link href="#" className="hover:text-[#b5985a] text-nowrap text-right">
               {t('FAQS')}
             </Link>
           </div>

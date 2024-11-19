@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)']
+        'sans': ['"Gotham"', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         fadeIn: {

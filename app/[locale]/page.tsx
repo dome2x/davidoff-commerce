@@ -16,7 +16,7 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-    <Link href="/en/GB/bio/home">Home</Link>
+    <Link href="/en-GB/bio/home">Home</Link>
       <Hero />
       <Suspense>
         <Carousel />

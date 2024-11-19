@@ -24,7 +24,7 @@ export default function NavBar() {
     <div className="font-sans">
       {/* Top banner */}
       <div className="bg-black text-white text-center py-2 text-sm">
-        Get free shipping when you spend $500 or more!
+        {t("top_banner")}
       </div>
 
       {/* Main navigation */}
