@@ -1,8 +1,8 @@
 import { builder } from '@builder.io/sdk';
 import { Button } from '@components/ui/button';
+import { useQuery } from '@tanstack/react-query';
 import { Accessibility, Circle } from 'lucide-react';
 import { useLocale } from 'next-intl';
-import { useState } from 'react';
 
 // Replace with your Public API Key.
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
@@ -15,21 +15,46 @@ interface HeroContent {
 }
 
 export default function Hero() {
-  // const t = useTranslations("hero");
-  const [hero, setHero] = useState({
-    title: 'Empty',
+  const locale = useLocale();
+
+  const heroData = useQuery<HeroContent>({
+    queryKey: ['hero-content'],
+    queryFn: async () => {
+      const res = await builder.get('hero-content', { locale });
+      console.log('************ RES and LOCALE', res, locale);
+      return res.data;
+    }
+  });
+  let hero = {
+    title: '[[[Empty]]]',
     subtitle: 'subtitle',
     cta: 'DISCOVER MORE',
     videoUrl: '/media/ad97e522-d055a09d.mp4'
-  } as HeroContent);
-  const locale = useLocale();
-  builder.get('hero-content', { locale }).then((content) => {
-    console.log('****************** content', content);
-    setHero(content.data as HeroContent);
-  });
+  } as HeroContent;
+  if (heroData.data) {
+    hero = heroData.data as unknown as HeroContent;
+  }
+  console.log('****************** hero', heroData.data, locale);
+
+  // const t = useTranslations("hero");
+  // const [hero, setHero] = useState({
+  //   title: '[[[Empty]]]',
+  //   subtitle: 'subtitle',
+  //   cta: 'DISCOVER MORE',
+  //   videoUrl: '/media/ad97e522-d055a09d.mp4'
+  // } as HeroContent);
+  // const locale = useLocale();
+  // useEffect(() => {
+  //   builder.get('hero-content', { locale }).then((content) => {
+  //     if (hero.title === '[[[Empty]]]') {
+  //       console.log('****************** content', content);
+  //       setHero(content.data as HeroContent);
+  //     }
+  //   });
+  // }, [hero, setHero]);
+
   return (
     <>
-      {}
       <div className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 h-full w-full">
           <video
