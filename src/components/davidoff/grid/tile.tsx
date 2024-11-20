@@ -1,9 +1,9 @@
 'use client';
-import { Button } from "@components/ui/button";
-import { Card, CardContent, CardFooter } from "@components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import { Button } from '@components/ui/button';
+import { Card, CardContent, CardFooter } from '@components/ui/card';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
 type ProductData = {
   id: number;
@@ -19,10 +19,10 @@ type ProductData = {
   featuredImage: {
     url: string;
   };
-}
+};
 
 export default function GridItemTile({ data }: { data: ProductData }) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link href={data.href} className="w-[300px]">
@@ -41,7 +41,7 @@ export default function GridItemTile({ data }: { data: ProductData }) {
             <Image
               src={data.featuredImage.url}
               alt={data.name}
-              className="h-[300px] w-full object-cover"
+              className="object-cover"
               width={300}
               height={300}
             />
@@ -53,9 +53,7 @@ export default function GridItemTile({ data }: { data: ProductData }) {
                 {data.name}
                 <br />
                 <br />
-                <span className="text-sm">
-                  {data.subtitle}
-                </span>
+                <span className="text-sm">{data.subtitle}</span>
               </h3>
             </div>
             <div className="mt-4 flex items-center justify-center gap-4 text-sm">
@@ -75,8 +73,9 @@ export default function GridItemTile({ data }: { data: ProductData }) {
                 {[1, 2, 3, 4, 5].map((i) => (
                   <div
                     key={i}
-                    className={`h-2 w-2 rounded-full ${i <= data.intensity ? "bg-primary" : "bg-muted"
-                      }`}
+                    className={`h-2 w-2 rounded-full ${
+                      i <= data.intensity ? 'bg-primary' : 'bg-muted'
+                    }`}
                   />
                 ))}
               </div>
@@ -85,13 +84,13 @@ export default function GridItemTile({ data }: { data: ProductData }) {
           </div>
         </CardContent>
         <CardFooter className="p-4 pt-0">
-          <div className={`w-full transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
-            <Button className="w-full bg-[#C69C6D] hover:bg-[#B38B5C]">
-              SHOP NOW
-            </Button>
+          <div
+            className={`w-full transition-all duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <Button className="w-full bg-[#C69C6D] hover:bg-[#B38B5C]">SHOP NOW</Button>
           </div>
         </CardFooter>
       </Card>
     </Link>
-  )
+  );
 }
