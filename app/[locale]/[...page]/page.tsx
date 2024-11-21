@@ -19,6 +19,7 @@ interface PageProps {
 export default async function Page(props: PageProps) {
   const { locale, page } = props.params;
   
+  console.log('********* PAGE', locale, `/${locale}/` + (page?.join("/") || ""));
   const model = "page";
   const content = await builder
     // Get the page content from Builder with the specified options
@@ -37,6 +38,7 @@ export default async function Page(props: PageProps) {
     // Convert the result to a promise
     .toPromise();
 
+  console.log('********* CONTENT', content);
   return (
     <>
       {/* Render the Builder page */}

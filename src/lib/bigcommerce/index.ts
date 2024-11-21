@@ -612,11 +612,12 @@ export async function getPages(): Promise<VercelPage[]> {
   return pagesList.map((page) => bigCommerceToVercelPageContent(page));
 }
 
-export async function getProduct(handle: string): Promise<VercelProduct | undefined> {
+
+export async function getProduct(handle: string | number): Promise<VercelProduct | undefined> {
   const res = await bigCommerceFetch<BigCommerceProductOperation>({
     query: getProductQuery,
     variables: {
-      productId: parseInt(handle, 10)
+      productId: parseInt("" + handle, 10)
     }
   });
 
